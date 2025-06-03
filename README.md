@@ -30,3 +30,9 @@ You can customize the Tinyproxy configuration by mounting a custom `tinyproxy.co
 ```sh
 docker run -d -p 8888:8888 -v /path/to/your/tinyproxy.conf:/etc/tinyproxy/tinyproxy.conf ghcr.io/querateam/docker-tinyproxy:latest
 ```
+
+You can also restrict proxy access to specific hosts by setting the `ALLOWED_HOSTS` environment variable (comma-separated list):
+
+```sh
+docker run -d -p 8888:8888 -e ALLOWED_HOSTS="example.com,another.com" ghcr.io/querateam/docker-tinyproxy:latest
+```
