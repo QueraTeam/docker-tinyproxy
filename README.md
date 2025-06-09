@@ -36,3 +36,12 @@ You can also restrict proxy access to specific hosts by setting the `ALLOWED_HOS
 ```sh
 docker run -d -p 8888:8888 -e ALLOWED_HOSTS="example.com,another.com" ghcr.io/querateam/docker-tinyproxy:latest
 ```
+
+### Running as a Non-Root User
+
+For enhanced security, you can run the Tinyproxy container as a non-root user. Use the `--user` flag with `docker run` to specify a non-root UID and GID:
+
+```sh
+docker run -d -p 8888:8888 --user 1234:1234 ghcr.io/querateam/docker-tinyproxy:latest
+```
+

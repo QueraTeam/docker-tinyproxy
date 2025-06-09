@@ -1,6 +1,5 @@
-FROM alpine:latest
+FROM alpine:3.22
 WORKDIR /app
-RUN apk add --no-cache tinyproxy curl
-COPY run.sh /app/run.sh
-EXPOSE 8888
-ENTRYPOINT ["/bin/sh", "/app/run.sh"]
+RUN apk add --no-cache tinyproxy curl && mv /etc/tinyproxy/tinyproxy.conf /etc/tinyproxy/tinyproxy.default.conf
+COPY entrypoint.sh /app/entrypoint.sh
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
