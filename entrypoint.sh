@@ -13,18 +13,18 @@ else
   cp "$DEFAULT_CONFIG_FILE" "$CONFIG_FILE"
   sed -i "s|^Allow |#Allow |" "$CONFIG_FILE"
 
-  if [ ! -z $ALLOWED_HOSTS ]; then
+  if [ ! -z "$ALLOWED_HOSTS" ]; then
     sed -i "s|^#Filter .*|Filter \"${FILTER_FILE}\"|" "$CONFIG_FILE"
     sed -i "s|^#FilterDefaultDeny .*|FilterDefaultDeny Yes|" "$CONFIG_FILE"
-    touch $FILTER_FILE
-    for host in $(echo $ALLOWED_HOSTS | tr ',' '\n'); do
+    touch "$FILTER_FILE"
+    for host in $(echo "$ALLOWED_HOSTS" | tr ',' '\n'); do
       echo "$host" >> "$FILTER_FILE"
     done
   fi
 
-  if [ ! -z $UPSTREAM_PROXY ]; then
+  if [ ! -z "$UPSTREAM_PROXY" ]; then
     echo "Upstream $UPSTREAM_PROXY" >> "$CONFIG_FILE"
   fi
 fi
 
-exec tinyproxy -d -c $CONFIG_FILE
+exec tinyproxy -d -c "$CONFIG_FILE"
