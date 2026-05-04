@@ -23,7 +23,7 @@ else
   fi
 
   if [ ! -z $UPSTREAM_PROXY ]; then
-    echo "Upstream http $UPSTREAM_PROXY" >> "$CONFIG_FILE"
+    echo "Upstream $UPSTREAM_PROXY" >> "$CONFIG_FILE"
   fi
 fi
 

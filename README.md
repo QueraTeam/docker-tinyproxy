@@ -40,7 +40,7 @@ docker run -d -p 8888:8888 -e ALLOWED_HOSTS="example.com,another.com" ghcr.io/qu
 You can use upstream proxy for requests by setting the `UPSTREAM_PROXY` environment variable:
 
 ```sh
-docker run -d -p 8888:8888 -e UPSTREAM_PROXY="my.proxy:port" ghcr.io/querateam/docker-tinyproxy:latest
+docker run -d -p 8888:8888 -e UPSTREAM_PROXY="http my.proxy:port" ghcr.io/querateam/docker-tinyproxy:latest
 ```
 
 ### Running as a Non-Root User
