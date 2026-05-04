@@ -21,6 +21,10 @@ else
       echo "$host" >> "$FILTER_FILE"
     done
   fi
+
+  if [ ! -z $UPSTREAM_PROXY ]; then
+    echo "Upstream http $UPSTREAM_PROXY" >> "$CONFIG_FILE"
+  fi
 fi
 
 exec tinyproxy -d -c $CONFIG_FILE

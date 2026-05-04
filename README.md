@@ -37,6 +37,12 @@ You can also restrict proxy access to specific hosts by setting the `ALLOWED_HOS
 docker run -d -p 8888:8888 -e ALLOWED_HOSTS="example.com,another.com" ghcr.io/querateam/docker-tinyproxy:latest
 ```
 
+You can use upstream proxy for requests by setting the `UPSTREAM_PROXY` environment variable:
+
+```sh
+docker run -d -p 8888:8888 -e UPSTREAM_PROXY="my.proxy:port" ghcr.io/querateam/docker-tinyproxy:latest
+```
+
 ### Running as a Non-Root User
 
 For enhanced security, you can run the Tinyproxy container as a non-root user. Use the `--user` flag with `docker run` to specify a non-root UID and GID:
